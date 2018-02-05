@@ -36,8 +36,8 @@ def step_gradient(b_current, m_current, points, learningRate):
     m.append(m_current - (learningRate * 1))
     m.append(m_current + (learningRate * 1))
     b = []
-    b.append(b_current - (learningRate * 1))
-    b.append(b_current + (learningRate * 1))
+    b.append(b_current - (learningRate * 100))
+    b.append(b_current + (learningRate * 100))
 
     error_list = {}
     initial_error = compute_error_for_line_given_points(b_current, m_current, points)
@@ -63,14 +63,19 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
         b, m, isFinal = step_gradient(b, m, array(points),learning_rate)
         if isFinal:
             break
+        if i%100 == 0:
+            print b, m
     return [b, m]
     
 def main():
-    points = genfromtxt( "data_gen/data_1012_1.0_2.0_1000_2_250.csv", delimiter=",")
+    # points = genfromtxt( "data_gen/data_1012_1.0_2.0_1000_2_250.csv", delimiter=",")
+    points = genfromtxt( "data_gen/data_1003_-3.5_7000_1000_2_250.csv", delimiter=",")
+    # learning_rate = 0.01
     learning_rate = 0.001
     initial_b = 0.0 # initial y-intercept guess
     initial_m = 0.0 # initial slope guess
-    num_iterations = 1000
+    num_iterations = 10000
+    # num_iterations = 1000
     print " Starting gardient descent b = {0}  m = {1}  error = {2}".format(initial_b, initial_m, compute_error_for_line_given_points(initial_b, initial_m, points))
     print " Running..."
     [b, m] = gradient_descent_runner(points, initial_b, initial_m, learning_rate, num_iterations)
