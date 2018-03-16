@@ -33,8 +33,8 @@ def genCSV(data, filename = ''):
             writer.writerow([dep, indep])
 
 def main():
-	m = 1.0
-	c = 2.0
+	m = -3.5
+	c = 7000
         domain = 1000
         density = 2
         variance_measure = 250
