@@ -7,7 +7,7 @@ class Board:
         A board is a dictionary which the key is the position in the board
         and the value can be 'X', 'O' or ' ' (representing an empty position
         in the board.)"""
-        self.board =[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+        self.board =['2',' ',' ',' ',' ',' ',' ',' ',' ',' ']
     def print_board(self):
         """Prints the board."""
         print(" %c | %c | %c " % (self.board[1],self.board[2],self.board[3]))
@@ -31,16 +31,5 @@ class Board:
             return self.board
         return None
 
-    def is_winner(self, player):
-        """Returns True if the player won and False otherwise."""
-        if self.board[1] == player.type and self.board[2] == player.type and self.board[3] == player.type or \
-        self.board[4] == player.type and self.board[5] == player.type and self.board[6] == player.type or \
-        self.board[7] == player.type and self.board[8] == player.type and self.board[9] == player.type or \
-        self.board[1] == player.type and self.board[4] == player.type and self.board[7] == player.type or \
-        self.board[2] == player.type and self.board[5] == player.type and self.board[8] == player.type or \
-        self.board[3] == player.type and self.board[6] == player.type and self.board[9] == player.type or \
-        self.board[1] == player.type and self.board[5] == player.type and self.board[9] == player.type or \
-        self.board[7] == player.type and self.board[5] == player.type and self.board[3] == player.type:
-            return True
-        return False
+    
 
